@@ -42,13 +42,4 @@ public class UserController {
 
     }
 
-    @DeleteMapping("/api/user/{id}")
-    public String deleteUserById (@PathVariable Long id) throws Exception {
-        Optional <User> otp=userRepository.findById(id);
-        if (otp.isEmpty()) {
-            throw new Exception("user not exist with id"+id);
-        }
-        userRepository.deleteById(otp.get().getId());
-        return "User deleted";
-    }
 }
